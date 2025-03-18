@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield | Upload Transactions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div>
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <a href="index.html">FraudShield</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="upload.html" class="nav-button active">Upload</a>
+                <a href="reports.html" class="nav-button">Reports</a>
+                <a href="help.html" class="nav-button">Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="upload">
+            <h1>Upload Transactions</h1>
+            <div class="upload-container">
+                <div class="introduction">
+                    <p>Upload your transaction data for fraud detection analysis. Our system will scan your file and identify potential fraudulent activities.</p>
+                    <p>Upload Guidelines:</p>
+                    <ul>
+                        <li>Only CSV files are supported</li>
+                        <li>Maximum file size: 10MB</li>
+                        <li>Ensure your file includes transaction date, amount, and merchant information</li>
+                        <li>Remove any sensitive personal data before uploading</li>
+                    </ul>
+                </div>
+                
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="fileUpload">Upload CSV File</label>
+                        <input type="file" id="fileUpload" accept=".csv" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="analysisType">Analysis Type</label>
+                        <select id="analysisType" required>
+                            <option value="standard">Standard Analysis</option>
+                            <option value="advanced">Advanced Analysis</option>
+                            <option value="comprehensive">Comprehensive Analysis</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="detectionThreshold">Detection Sensitivity</label>
+                        <select id="detectionThreshold" required>
+                            <option value="low">Low (Fewer alerts, lower false positives)</option>
+                            <option value="medium" selected>Medium (Balanced detection)</option>
+                            <option value="high">High (More alerts, higher false positives)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="generateReport" checked>
+                        <label for="generateReport">Generate detailed report after analysis</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-search"></i> Upload & Detect Fraud
+                    </button>
+                </form>
+                
+                <div class="upload-progress hidden" id="uploadProgress">
+                    <h3>Analyzing Transactions</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">Uploading file...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FraudShield. All rights reserved.</p>
+        <p>Contact: support@fraudshield.com</p>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>
