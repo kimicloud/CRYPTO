@@ -323,7 +323,7 @@ try:
         # Check if the transaction is marked as fraud in the dataset
         if fraud_flag == 1:
             fraud_score = 1.0
-            fraud_reasons.append("Marked as fraud in dataset")
+            fraud_reasons.append("fraud transaction")
         
         # If fraud score exceeds threshold, mark as fraud
         if fraud_score >= 0.5:
