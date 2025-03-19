@@ -44,23 +44,7 @@
                         <input type="file" id="fileUpload" accept=".csv" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="analysisType">Analysis Type</label>
-                        <select id="analysisType" required>
-                            <option value="standard">Standard Analysis</option>
-                            <option value="advanced">Advanced Analysis</option>
-                            <option value="comprehensive">Comprehensive Analysis</option>
-                        </select>
-                    </div>
                     
-                    <div class="form-group">
-                        <label for="detectionThreshold">Detection Sensitivity</label>
-                        <select id="detectionThreshold" required>
-                            <option value="low">Low (Fewer alerts, lower false positives)</option>
-                            <option value="medium" selected>Medium (Balanced detection)</option>
-                            <option value="high">High (More alerts, higher false positives)</option>
-                        </select>
-                    </div>
                     
                     <div class="form-check">
                         <input type="checkbox" id="generateReport" checked>
@@ -80,6 +64,121 @@
                     <p id="progressText">Uploading file...</p>
                 </div>
             </div>
+            
+            <!-- Analysis Results Section -->
+            <div id="analysisResults" class="analysis-results hidden">
+                <h2>Fraud Detection Results</h2>
+                
+                <div class="results-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Total Transactions</h3>
+                            <p id="totalTransactions">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon fraud">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Fraudulent</h3>
+                            <p id="fraudCount">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon legitimate">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Legitimate</h3>
+                            <p id="legitimateCount">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Fraud Rate</h3>
+                            <p id="fraudPercentage">0%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="fraudulent-tab">Fraudulent Transactions</button>
+                    <button class="tab-button" data-tab="all-tab">All Transactions</button>
+                    <button class="tab-button" data-tab="prevention-tab">Prevention Methods</button>
+                </div>
+                
+                <div id="fraudulent-tab" class="tab-content active">
+                    <div class="search-filter">
+                        <input type="text" id="fraudSearchInput" placeholder="Search fraudulent transactions...">
+                    </div>
+                    <div id="fraudulentTransactions" class="transactions-list">
+                        <!-- Fraudulent transactions will be loaded here -->
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <p>No fraudulent transactions detected.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- File upload form -->
+<form id="upload-form" enctype="multipart/form-data">
+    <input type="file" id="csv-file" accept=".csv" required>
+    <button type="submit">Analyze Transactions</button>
+</form>
+
+<!-- Loading indicator -->
+<div id="loading-indicator" style="display: none;">
+    <p>Processing data...</p>
+</div>
+
+<!-- Results container -->
+<div id="results-container" style="display: none;">
+    <h2>Fraud Detection Results</h2>
+    <div id="fraud-summary"></div>
+    <div id="fraud-details"></div>
+    <div id="prevention-tips"></div>
+</div>
+                <div id="all-tab" class="tab-content">
+                    <div class="search-filter">
+                        <input type="text" id="allSearchInput" placeholder="Search all transactions...">
+                    </div>
+                    <div id="allTransactions" class="transactions-list">
+                        <!-- All transactions will be loaded here -->
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <p>No transactions available.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="prevention-tab" class="tab-content">
+                    <div id="preventionMethods" class="prevention-methods">
+                        <!-- Prevention methods will be loaded here -->
+                        <div class="empty-state">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Prevention methods will appear here after analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="downloadReportBtn" class="btn-secondary">
+                        <i class="fas fa-download"></i> Download Report
+                    </button>
+                    <button id="newAnalysisBtn" class="btn-primary">
+                        <i class="fas fa-plus"></i> New Analysis
+                    </button>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -89,5 +188,6 @@
     </footer>
     
     <script src="main.js"></script>
+    <script src="upload_handler.js"></script>
 </body>
 </html>
