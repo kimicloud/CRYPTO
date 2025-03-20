@@ -1,5 +1,7 @@
 # 🚀 Credit Card Fraud Detection & Attack Prediction using GMM
 
+🔗 **Live Demo:** [Visit the Website](https://fraudshieldgmm.vercel.app)
+
 ## 📌 Problem Statement  
 Credit card fraud is a critical issue, causing financial institutions to lose billions. Traditional rule-based fraud detection methods fail to adapt to evolving fraud patterns like skimming, phishing, and card cloning.  
 
