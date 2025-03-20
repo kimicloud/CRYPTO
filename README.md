@@ -42,11 +42,3 @@ Our system integrates **Machine Learning (GMM)** with a **web-based interface** 
 5️⃣ **Insights & Reports** – Provides security recommendations.  
 
 ---
-
-## 🚀 Future Enhancements  
-🔹 **Real-Time Fraud Detection** – Shift from batch-based to real-time monitoring.  
-🔹 **Instant User Alerts** – Notify customers of suspicious activity.  
-🔹 **API Integration for Banks** – Seamless fraud detection via API.  
-🔹 **Advanced AI Models** – Implement LSTMs or Autoencoders for improved accuracy.  
-
----
